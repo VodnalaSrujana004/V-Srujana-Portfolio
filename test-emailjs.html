@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EmailJS Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <h1>EmailJS Test</h1>
+    <button onclick="testEmailJS()">Test EmailJS</button>
+    <div id="result"></div>
+
+    <script>
+        function testEmailJS() {
+            const result = document.getElementById('result');
+            result.innerHTML = 'Testing...';
+
+            // Your current configuration
+            const serviceId = 'service_0wbelegr';
+            const templateId = 'template_31ti1s9';
+            const publicKey = 'J1cjDLIWmlBnKaq2c';
+
+            const templateParams = {
+                from_name: 'Test User',
+                from_email: 'test@example.com',
+                subject: 'Test Subject',
+                message: 'Test message from HTML test',
+                to_email: 'vodnalasrujana29@gmail.com',
+                to_name: 'Vodnala Srujana',
+                reply_to: 'test@example.com'
+            };
+
+            console.log('Testing with:');
+            console.log('Service ID:', serviceId);
+            console.log('Template ID:', templateId);
+            console.log('Public Key:', publicKey);
+            console.log('Template Params:', templateParams);
+
+            emailjs.send(serviceId, templateId, templateParams, publicKey)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    result.innerHTML = '<p style="color: green;">✅ SUCCESS! Check console for details</p>';
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    result.innerHTML = '<p style="color: red;">❌ FAILED! Check console for details</p>';
+                    
+                    // Log specific error details
+                    console.log('Error details:', {
+                        message: error.message,
+                        status: error.status,
+                        text: error.text,
+                        fullError: error
+                    });
+                });
+        }
+    </script>
+</body>
+</html>

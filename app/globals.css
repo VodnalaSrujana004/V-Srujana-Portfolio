@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142.1 76.2% 36.3%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1f3a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff88;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc70;
+}
+
+/* Smooth animations */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Particle canvas styling */
+canvas {
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1f3a 50%, #0f1727 100%);
+}
+
+/* Custom gradient text */
+.gradient-text {
+  background: linear-gradient(45deg, #ffffff, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hover effects */
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Progress bar custom styling */
+.progress-bar {
+  background: linear-gradient(90deg, #00ff88, #00cc70);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
+}
+
+/* Button pulse effect */
+@keyframes pulse-green {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 255, 136, 0);
+  }
+}
+
+.pulse-green {
+  animation: pulse-green 2s infinite;
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 3s linear infinite;
+}
+
+/* Glitch effect for special elements */
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 #00ff88, -0.05em -0.025em 0 #ff0080, 0.025em 0.05em 0 #0080ff;
+  }
+  15% {
+    text-shadow: 0.05em 0 0 #00ff88, -0.05em -0.025em 0 #ff0080, 0.025em 0.05em 0 #0080ff;
+  }
+  16% {
+    text-shadow: -0.05em -0.025em 0 #00ff88, 0.025em 0.025em 0 #ff0080, -0.05em -0.05em 0 #0080ff;
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 #00ff88, 0.025em 0.025em 0 #ff0080, -0.05em -0.05em 0 #0080ff;
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 #00ff88, 0.05em 0 0 #ff0080, 0 -0.05em 0 #0080ff;
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 #00ff88, 0.05em 0 0 #ff0080, 0 -0.05em 0 #0080ff;
+  }
+  100% {
+    text-shadow: -0.025em 0 0 #00ff88, -0.025em -0.025em 0 #ff0080, -0.025em -0.05em 0 #0080ff;
+  }
+}
+
+.glitch {
+  animation: glitch 1s linear infinite;
+}
+
+/* Make favicons circular */
+link[rel="icon"], 
+link[rel="shortcut icon"], 
+link[rel="apple-touch-icon"] {
+  border-radius: 50% !important;
+}
+
+/* Browser tab favicon styling */
+head link[rel="icon"] {
+  mask: radial-gradient(circle, white 40%, transparent 40%);
+  -webkit-mask: radial-gradient(circle, white 40%, transparent 40%);
+}
