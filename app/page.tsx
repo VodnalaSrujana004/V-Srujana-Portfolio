@@ -746,7 +746,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     },
   ]
 
-  const certifications = [
+  const certificates = [
     { name: "Google AI Essentials", provider: "Google", category: "AI/ML" },
     { name: "Google Cybersecurity Professional Certificate", provider: "Google", category: "Security" },
     { name: "IBM Cybersecurity Fundamentals", provider: "IBM", category: "Security" },
@@ -1367,17 +1367,17 @@ const handleSubmit = async (e: React.FormEvent) => {
             </CardContent>
           </Card>
 
-          {/* Certifications */}
+          {/* certificates */}
           <Card className="bg-slate-800/50 border-green-400/30 backdrop-blur-sm">
             <CardHeader className="pb-3">
               <CardTitle className="text-green-400 flex items-center text-base">
                 <Award className="w-4 h-4 lg:w-5 lg:h-5 mr-2" />
-                Certifications
+                certificates
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {certifications.map((cert, index) => (
+                {certificates.map((cert, index) => (
                   <div key={index} className="p-2 bg-slate-700/30 rounded-lg">
                     <h5 className="font-semibold text-white text-sm">{cert.name}</h5>
                     <p className="text-green-400 text-sm">{cert.provider}</p>
